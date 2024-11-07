@@ -51,3 +51,11 @@ class Tips(models.Model):
     def __str__(self):
         return self.driver.name
 
+
+class AdminEarning(models.Model):
+    datetime = models.DateTimeField(auto_now_add=True)
+    earning = models.DecimalField(default=0.0, max_digits=5, decimal_places=2)
+    outstanding = models.DecimalField(default=0.0, max_digits=5, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.datetime.strftime('%Y-%m-%d %H:%M:%S')} - Earning: {self.earning}, Outstanding: {self.outstanding}"
