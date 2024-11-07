@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-np6%qj7!ub!-gcvp3qaf5w-m+k%@y$gdyn2ax%l&q1#9)t1ocw
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'channels',
@@ -121,7 +121,7 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
     "UPDATE_LAST_LOGIN": False,
-    
+
     "ALGORITHM": "HS256",
     "VERIFYING_KEY": "",
     "AUDIENCE": None,
