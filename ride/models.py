@@ -38,3 +38,16 @@ def driver_status_changed(sender, instance, **kwargs):
             "type": "send_driver_status_data",
         },
     )
+
+class Tips(models.Model):
+    STATUS_CHOICES = [
+        ('completed', 'Completed'),
+        ('in_process', 'In Process'),
+        ('cancelled', 'Cancelled'),
+    ]
+    driver = models.ForeignKey(Driver,on_delete=models.CASCADE,null=True,blank=True)
+    status = status = models.CharField(max_length=20, choices=STATUS_CHOICES)
+
+    def __str__(self):
+        return self.driver.name
+
