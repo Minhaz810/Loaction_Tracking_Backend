@@ -58,24 +58,37 @@ TEMPLATES = [
 ASGI_APPLICATION = 'core.asgi.application'
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.contrib.gis.db.backends.postgis',
-            'NAME': 'location_tracking',
-            'USER': 'postgres',
-            'PASSWORD': 'pgadmin',
-            'HOST': '127.0.0.1',
-            'PORT': 5432,
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'KuXppeAFgBwDGJFxefjcwWsDhlFYAWQG',
+        'HOST': 'junction.proxy.rlwy.net',
+        'PORT': 58403,
     }
+}
+
+
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 6379)],
+#         },
+#     },
+# }
 
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [
+                "redis://default:HupSWNihNfeWTIuacIbptJGggmYaSHgy@junction.proxy.rlwy.net:52844"
+            ],
         },
     },
 }
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
